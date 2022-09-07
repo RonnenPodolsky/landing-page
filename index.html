@@ -1,59 +1,168 @@
-<!DOCTYPE >
+<!DOCTYPE>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Manipulating the DOM</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Real Madrid Landing Page</title>
   <!-- Load Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet" />
+  <!-- Load Styles -->
+  <link href="css/styles.css" rel="stylesheet" />
 </head>
+
 <body>
   <!-- HTML Follows BEM naming conventions 
   IDs are only used for sections to connect menu achors to sections -->
-  <header class="page__header">
-    <nav class="navbar__menu">
+  <header class="header_page">
+    <nav class="menu_navbar">
       <!-- Navigation starts as empty UL that will be populated with JS -->
-      <ul id="navbar__list"></ul>
+      <ul id="list_nav">
+      </ul>
     </nav>
   </header>
   <main>
-    <header class="main__hero">
-      <h1>Landing Page </h1>
+    <header class="title">
+      <h1>Real Madrid</h1>
     </header>
     <!-- Each Section has an ID (used for the anchor) and 
     a data attribute that will populate the li node.
     Adding more sections will automatically populate nav.
     The first section is set to active class by default -->
-    <section id="section1" data-nav="Section 1" class="your-active-class">
-      <div class="landing__container">
-        <h2>Section 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+    <section id="history" data-nav="history" class="your-active-class">
+      <div class="section_container">
+        <h2>History</h2>
+        <p>
+          Real Madrid Club de Fútbol is a professional football club based in Madrid, Spain. The club was formed in 1902
+          as Madrid Football Club, and played its first competitive match on 13 May 1902, when it lost 3–1 in the
+          semi-final of the Campeonato de Copa de S.M. Alfonso XIII against FC Barcelona.[1] Real Madrid played against
+          other local clubs in various regional tournaments, that served as qualifiers for the Copa del Rey, from 1902
+          to 1940.
+        </p>
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+        <p>
+          In 1929, the club became one of the founding members of La Liga, Spain's first national league. As of 2022,
+          Real is one of only three clubs never to have been relegated from the top level of Spanish football, the
+          others being Athletic Bilbao and Barcelona.
+        </p>
       </div>
     </section>
-    <section id="section2" data-nav="Section 2">
-      <div class="landing__container">
-        <h2>Section 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+    <section id="records" data-nav="Records">
+      <div class="section_container">
+        <h2>Records</h2>
+        <p>
+          Raúl holds the record for most Real Madrid appearances, having played 741 first-team matches from 1994 to
+          2010. Iker Casillas comes second with 725 appearances, followed by Manuel Sanchis, Jr., having played 710
+          times.
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+
+        </p>
+
+        <p>
+          The record for a goalkeeper is held by Iker Casillas, with 725 appearances. With 170 caps (167 while at the
+          club), Sergio Ramos is Real's most capped international player.
+          Cristiano Ronaldo (2009–18) is Real Madrid's all-time top goalscorer, with 450 goals in 438 matches.[195][196] Six other players have also scored over 200 goals for Real: Alfredo Di Stéfano (1953–64), Santillana (1971–88), Ferenc Puskás (1958–66), Hugo Sánchez (1985–92), Karim Benzema (2009–current) and the previous goalscoring record-holder Raúl (1994–2010).
+        </p>
       </div>
     </section>
-    <section id="section3" data-nav="Section 3">
-      <div class="landing__container">
-        <h2>Section 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+    <section id="ownership" data-nav="Ownership">
+      <div class="section_container">
+        <h2>Ownership</h2>
+        <p>
+          It was under Florentino Pérez's first presidency (2000–2006) that Real Madrid started its ambition of becoming
+          the world's richest professional football club.[280] The club ceded part of its training grounds to the city
+          of Madrid in 2001, and sold the rest to four corporations: Repsol YPF, Mutua Automovilística de Madrid, Sacyr
+          Vallehermoso and OHL.
+        </p>
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
+        <p>
+          The sale eradicated the club's debts, paving the way for it to buy the world's most expensive players, such as
+          Zinedine Zidane, Luís Figo, Ronaldo, and David Beckham. The city had previously rezoned the training grounds
+          for development, a move which in turn increased their value, and then bought the site.[58] The European
+          Commission started an investigation into whether the city overpaid for the property, to be considered a form
+          of state subsidy.
+        </p>
+      </div>
+    </section>
+    <section id="squad" data-nav="Squad">
+      <div class="section_container">
+        <h2>Squad</h2>
+        <p>
+          1 GK Belgium BEL Thibaut Courtois
+          2 DF Spain ESP Dani Carvajal
+          3 DF Brazil BRA Éder Militão
+          4 DF Austria AUT David Alaba
+          5 DF Spain ESP Jesús Vallejo
+          6 DF Spain ESP Nacho (vice-captain)
+          7 FW Belgium BEL Eden Hazard
+          8 MF Germany GER Toni Kroos
+          9 FW France FRA Karim Benzema (captain)
+          10 MF Croatia CRO Luka Modrić
+          11 FW Spain ESP Marco Asensio
+          12 MF France FRA Eduardo Camavinga
+        </p>
+
+        <p>
+          13 GK Ukraine UKR Andriy Lunin
+          15 MF Uruguay URU Federico Valverde
+          16 DF Spain ESP Álvaro Odriozola
+          17 MF Spain ESP Lucas Vázquez
+          18 MF France FRA Aurélien Tchouaméni
+          19 MF Spain ESP Dani Ceballos
+          20 FW Brazil BRA Vinícius Júnior
+          21 FW Brazil BRA Rodrygo
+          22 DF Germany GER Antonio Rüdiger
+          23 DF France FRA Ferland Mendy
+          24 FW Dominican Republic DOM Mariano Díaz
+        </p>
       </div>
     </section>
   </main>
-  <footer class="page__footer">
-    <p>&copy Udacity</p>
+  <form action="" method="GET" id="form">
+    <h2>Subscribe for updates</h2>
+
+    <div>
+      <label for="name">Your First name</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+
+    <div>
+      <label for="subject">Subject</label>
+      <input type="text" name="subject" id="subject">
+    </div>
+
+    <div>
+      <label for="surname">Your Surname</label>
+      <input type="text" name="surname" id="surname" required>
+    </div>
+
+    <div>
+      <label for="message">Message</label>
+      <textarea name="message" id="message" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+      <label for="email">Email Address</label>
+      <input type="email" name="email" id="email" required>
+    </div>
+
+    <div>
+      <label for="phone">Phone number</label>
+      <input type="tel" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="xxx-xxx-xxxx (not required)">
+    </div>
+
+    <div>
+      <button type="submit">Subscribe</button>
+
+    </div>
+  </form>
+
+  <footer>
+    <p>&copy Ronnen Podolsky</p>
   </footer>
 
+  <script src="./js/app.js"></script>
 </body>
+
 </html>

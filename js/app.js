@@ -82,6 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         // add event on scroll
+        allNavLinks.forEach((link) => {
+            link.classList.remove('active')
+        })
         allSections.forEach(section => {
             //for each .thisisatest
             if (isInViewport(section)) {

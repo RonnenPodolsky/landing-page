@@ -1,13 +1,15 @@
-# Landing Page Project
+# Landing Page Project Real Madrid
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Installation](#Installation)
+* [Sections](#sections)
 
-## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Installation
 
-To get started, open `js/app.js` and start building out the app's functionality
+None
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Sections
+
+you can add more sections with the same id and data-nav format, and the js will add them to the nav automatically.

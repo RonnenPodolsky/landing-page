@@ -203,7 +203,7 @@ section:nth-of-type(even) .section_container::before {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(3n) .section_container::after {
+section:nth-of-type(odd) .section_container::after {
     content: '';
     background: rgb(255, 255, 255);
     background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);
@@ -218,7 +218,7 @@ section:nth-of-type(3n) .section_container::after {
     transition: ease 0.5s all;
 }
 
-section:nth-of-type(3n + 1) .section_container::after {
+section:nth-of-type(even) .section_container::after {
     content: '';
     background: rgb(255, 255, 255);
     background: linear-gradient(0deg, rgba(255, 255, 255, .1) 0%, rgba(255, 255, 255, .2) 100%);

@@ -22,16 +22,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     /**
     * Define Global Variables
-    * 
     */
+
     const navElem = document.querySelector('#list_nav')
     const allSections = document.querySelectorAll('section');
     const formElem = document.querySelector('form');
+
     /**
      * End Global Variables
      * Start Helper Functions
-     * 
     */
+
+    const titleCase = (string) => {
+        return string[0].toUpperCase() + string.slice(1).toLowerCase();
+    }
 
     const isInViewport = (elem) => {
         const distance = elem.getBoundingClientRect();
@@ -47,52 +51,26 @@ document.addEventListener('DOMContentLoaded', () => {
      * 
     */
 
-    // build the nav
+    // build the nav bar
 
+    allSections.forEach((section) => {
+        let navLink = document.createElement('li');
+        navLink.innerHTML = `<a href="#${section.dataset.nav}">${titleCase(section.dataset.nav)}</a>`;
+        navLink.classList.add('menu__link');
+        navLink.classList.add(`${section.dataset.nav}-scroll`);
+        navElem.append(navLink)
+    })
 
-    let historyNavElem = document.createElement('li');
-    historyNavElem.innerHTML = '<a href="#history">History</a>';
-    historyNavElem.classList.add('menu__link');
-    historyNavElem.classList.add('history-scroll');
-    navElem.append(historyNavElem)
-
-    let recordsNavElem = document.createElement('li');
-    recordsNavElem.innerHTML = '<a href="#records">Records</a>';
-    recordsNavElem.classList.add('menu__link');
-    recordsNavElem.classList.add('records-scroll');
-    navElem.append(recordsNavElem)
-
-    let ownershipNavElem = document.createElement('li');
-    ownershipNavElem.innerHTML = '<a href="#ownership">Ownership</a>';
-    ownershipNavElem.classList.add('menu__link');
-    ownershipNavElem.classList.add('ownership-scroll');
-    navElem.append(ownershipNavElem)
-
-    let squadNavElem = document.createElement('li');
-    squadNavElem.innerHTML = '<a href="#squad">Squad</a>';
-    squadNavElem.classList.add('menu__link');
-    squadNavElem.classList.add('squad-scroll');
-    navElem.append(squadNavElem)
+    // add form to the nav bar
 
     let formNavElem = document.createElement('li');
     formNavElem.innerHTML = '<a href="#form">Subscribe</a>';
-    formNavElem.classList.add('menu__link');
+    formNavElem.classList.add('form__link');
     formNavElem.classList.add('form-scroll');
     navElem.append(formNavElem)
 
-
-    const historyNav = document.querySelector('.history-scroll');
-    const historySection = document.querySelector('#history');
-    const ownershipNav = document.querySelector('.ownership-scroll');
-    const ownershipSection = document.querySelector('#ownership');
-    const squadNav = document.querySelector('.squad-scroll');
-    const squadSection = document.querySelector('#squad');
+    const allNavLinks = document.querySelectorAll('.menu__link')
     const formNav = document.querySelector('.form-scroll');
-    const formSection = document.querySelector('#form');
-
-    // Add class 'active' to section when near top of viewport
-
-    // Scroll to anchor ID using scrollTO event
 
     /**
      * End Main Functions
@@ -100,99 +78,60 @@ document.addEventListener('DOMContentLoaded', () => {
      * 
     */
 
-
-
-    // Build menu 
-
-    // Scroll to section on link click
-
-
+    // Add class 'active' to section and nav link when section near top of viewport
 
     window.addEventListener('scroll', () => {
         // add event on scroll
-        allSections.forEach(element => {
+        allSections.forEach(section => {
             //for each .thisisatest
-            if (isInViewport(element)) {
+            if (isInViewport(section)) {
                 //if in Viewport
-                element.classList.add("your-active-class");
+                section.classList.add("your-active-class");
+                allNavLinks.forEach((link) => {
+                    if (link.classList[1].includes(section.dataset.nav)) {
+                        link.classList.add('active')
+                    }
+                    else {
+                        link.classList.remove('active')
+                    }
+                })
+                formNav.classList.remove('active');
                 return;
             }
-            element.classList.remove('your-active-class');
+            section.classList.remove('your-active-class');
         });
+        if (isInViewport(formElem)) {
+            allNavLinks[allNavLinks.length - 1].classList.remove('active');
+            formNav.classList.add('active');
+        }
     });
-    
-    // Set sections as active
 
-    historyNav.addEventListener('click', (e) => {
-        e.preventDefault();
-        historySection.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-        historyNav.classList.add('active');
-        ownershipNav.classList.remove('active')
-        recordsNav.classList.remove('active')
-        squadNav.classList.remove('active')
-        formNav.classList.remove('active')
-    })
-
-    ownershipNav.addEventListener('click', (e) => {
-        e.preventDefault();
-        ownershipSection.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-        historyNav.classList.remove('active');
-        ownershipNav.classList.add('active')
-        recordsNav.classList.remove('active')
-        squadNav.classList.remove('active')
-        formNav.classList.remove('active')
-
-    })
-
-    squadNav.addEventListener('click', (e) => {
-        e.preventDefault();
-        squadSection.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-        historyNav.classList.remove('active');
-        ownershipNav.classList.remove('active')
-        recordsNav.classList.remove('active')
-        squadNav.classList.add('active')
-        formNav.classList.remove('active')
-    })
-
-    const recordsNav = document.querySelector('.records-scroll');
-    const recordsSection = document.querySelector('#records');
-
-    recordsNav.addEventListener('click', (e) => {
-        e.preventDefault();
-        recordsSection.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-        historyNav.classList.remove('active');
-        ownershipNav.classList.remove('active')
-        recordsNav.classList.add('active')
-        squadNav.classList.remove('active')
-        formNav.classList.remove('active')
+    // Scroll to section on link click 
+    allNavLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log(allSections)
+            let section = Array.from(allSections).find(node => link.classList[1].includes(node.dataset.nav))
+            section.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        })
     })
 
     formNav.addEventListener('click', (e) => {
         e.preventDefault();
-        formSection.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-        historyNav.classList.remove('active');
-        ownershipNav.classList.remove('active')
-        recordsNav.classList.remove('active')
-        squadNav.classList.remove('active')
-        formNav.classList.add('active')
+        formElem.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
     })
-
 
     formElem.addEventListener('submit', (e) => {
         e.preventDefault();
-
         let formData = new FormData(formElem);
         let alertMessage = "";
         for (const pair of formData.entries()) {
             alertMessage += pair[0]
             alertMessage += ": "
             alertMessage += pair[1]
-
             alertMessage += "\n";
         }
         alert(alertMessage)
-
         formElem.reset();
-
     })
 })

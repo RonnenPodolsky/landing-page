@@ -89,7 +89,14 @@ section {
 }
 
 
-.menu_navbar .menu__link {
+.menu_navbar .menu__link, 
+.menu_navbar .form__link {
+    display: block;
+    padding: 0.7em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+} {
     display: block;
     padding: 0.7em;
     font-weight: bold;
@@ -97,13 +104,16 @@ section {
     color: #000;
 }
 
-.menu_navbar .menu__link:hover {
+
+.menu_navbar .menu__link:hover,
+.menu_navbar .form__link:hover {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
 }
 
-.menu_navbar .menu__link.active  {
+.menu_navbar .menu__link.active,
+.menu_navbar .form__link.active  {
     background: #333;
     color: #fff;
 }

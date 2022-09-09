@@ -79,16 +79,17 @@ document.addEventListener('DOMContentLoaded', () => {
     */
 
     // Add class 'active' to section and nav link when section near top of viewport
+    // add event on scroll
 
     window.addEventListener('scroll', () => {
-        // add event on scroll
         allNavLinks.forEach((link) => {
             link.classList.remove('active')
         })
+
+        isInViewport(formElem) ? formNav.classList.add('active') : formNav.classList.remove('active');
+
         allSections.forEach(section => {
-            //for each .thisisatest
             if (isInViewport(section)) {
-                //if in Viewport
                 section.classList.add("your-active-class");
                 allNavLinks.forEach((link) => {
                     if (link.classList[1].includes(section.dataset.nav)) {
@@ -98,22 +99,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         link.classList.remove('active')
                     }
                 })
-                formNav.classList.remove('active');
-                return;
+            return;
             }
             section.classList.remove('your-active-class');
         });
-        if (isInViewport(formElem)) {
-            allNavLinks[allNavLinks.length - 1].classList.remove('active');
-            formNav.classList.add('active');
-        }
     });
 
     // Scroll to section on link click 
     allNavLinks.forEach((link) => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log(allSections)
             let section = Array.from(allSections).find(node => link.classList[1].includes(node.dataset.nav))
             section.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
         })
